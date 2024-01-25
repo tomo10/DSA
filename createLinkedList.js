@@ -83,7 +83,12 @@ class LinkedList {
   }
 
   remove(index) {
-    
+    // check params
+    const leader = this.traverseToIndex(index-1);
+    const unwantedNode = leader.next;
+    leader.next = unwantedNode.next;
+    this.length--;
+    return this.printList()
   }
 }
 
@@ -94,4 +99,4 @@ myLinkedList.prepend(5)
 myLinkedList.prepend(1)
 myLinkedList.insert(44, 2)
 myLinkedList.insert(123, 7)
-myLinkedList.printList()
+myLinkedList.remove(2)
